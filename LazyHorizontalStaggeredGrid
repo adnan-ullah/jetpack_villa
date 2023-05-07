@@ -1,75 +1,64 @@
-//Row MINI WIDTH
-            Box(modifier = Modifier
-                .height(240.dp)
-                .fillMaxWidth()) {
-                Column(modifier = Modifier.fillMaxSize()) {
-                    Text(text = "Cuisins")
-                    LazyHorizontalStaggeredGrid(
-                        rows = StaggeredGridCells.Fixed(2),
-                        verticalArrangement = Arrangement.spacedBy(4.dp),
-                        horizontalArrangement = Arrangement.spacedBy(4.dp),
+package com.example.noteit.features_note.presentation.utils.components
 
-                        content = {
-                            items(20) { photo ->
-                                Column() {
-                                    Card(
-                                        shape = RoundedCornerShape(8.dp),
-                                        backgroundColor = Color(0xFFFFB8C3)
-                                    ) {
-                                        Box(
-                                            modifier = Modifier
-                                                .width(80.dp)
-                                                .height(80.dp)
-                                                .padding(16.dp)
-                                        ) {
-                                        }
-                                    }
-                                    Text("Images")
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.staggeredgrid.LazyHorizontalStaggeredGrid
+import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Card
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
+
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+fun LazyHorizontalStaggeredView(
+    containerHeight: Dp,
+    items: List<Any> = emptyList(),
+    totalItems:Int,
+    cardHeight: Dp,
+    cardWidth: Dp,
+    rows: Int = 1,
+    label: String = "Label"
+
+    ){
+    Box(modifier = Modifier
+        .height(containerHeight)
+        .fillMaxWidth()) {
+        Column(modifier = Modifier.fillMaxSize()) {
+            Text(text = "$label")
+            LazyHorizontalStaggeredGrid(
+                rows = StaggeredGridCells.Fixed(rows),
+                verticalArrangement = Arrangement.spacedBy(6.dp),
+                horizontalArrangement = Arrangement.spacedBy(6.dp),
+
+
+                content = {
+                    items(totalItems) { photo ->
+                        Column() {
+                            Card(
+                                shape = RoundedCornerShape(8.dp),
+                                backgroundColor = Color(0xFFFFB8C3)
+                            ) {
+                                Box(
+                                    modifier = Modifier
+                                        .width(cardWidth)
+                                        .height(cardHeight)
+                                        .padding(16.dp)
+                                ) {
                                 }
-
-
                             }
-                        },
-
-                        )
-                }
-            }
-            
-            
-            
-            //Box Max Height 
-             Box(modifier = Modifier
-                .height(500.dp)
-                .fillMaxWidth()) {
-                Column(modifier = Modifier.fillMaxSize()) {
-                    Text(text = "Cuisins")
-                    LazyHorizontalStaggeredGrid(
-                        rows = StaggeredGridCells.Fixed(2),
-                        verticalArrangement = Arrangement.spacedBy(4.dp),
-                        horizontalArrangement = Arrangement.spacedBy(4.dp),
-
-                        content = {
-                            items(20) { photo ->
-                                Column() {
-                                    Card(
-                                        shape = RoundedCornerShape(8.dp),
-                                        backgroundColor = Color(0xFFFFB8C3)
-                                    ) {
-                                        Box(
-                                            modifier = Modifier
-                                                .width(150.dp)
-                                                .height(200.dp)
-                                                .padding(16.dp)
-                                        ) {
-                                        }
-                                    }
-                                    Text("Images")
-                                }
+                            Text("Images")
+                        }
 
 
-                            }
-                        },
+                    }
+                },
 
-                        )
-                }
-            }
+                )
+        }
+    }
+}
