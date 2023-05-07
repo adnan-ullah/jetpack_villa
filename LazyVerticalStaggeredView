@@ -1,0 +1,23 @@
+  Box(modifier = Modifier.height(220.dp).fillMaxWidth()) {
+                LazyVerticalStaggeredGrid(
+                    columns = StaggeredGridCells.Adaptive(200.dp),
+                    verticalArrangement = Arrangement.spacedBy(4.dp),
+                    horizontalArrangement = Arrangement.spacedBy(4.dp),
+                    content = {
+                        items(20) { photo ->
+                            Card(
+                                shape = RoundedCornerShape(8.dp),
+                                backgroundColor = Color(0xFFC8E6C9)
+                            ) {
+                                AsyncImage(
+                                    model = photo,
+                                    contentScale = ContentScale.Crop,
+                                    contentDescription = null,
+                                    modifier = Modifier.fillMaxWidth().wrapContentHeight()
+                                )
+                            }
+                        }
+                    },
+                    modifier = Modifier.fillMaxSize()
+                )
+            }
