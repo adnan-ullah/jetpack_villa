@@ -1,0 +1,20 @@
+ Box(modifier = Modifier.height(220.dp).fillMaxWidth()) {
+               LazyHorizontalStaggeredGrid(
+                   rows = StaggeredGridCells.Fixed(2),
+                   verticalArrangement = Arrangement.spacedBy(4.dp),
+                   horizontalArrangement = Arrangement.spacedBy(4.dp),
+
+                   content = {
+                       items(20) { photo ->
+                           Card(
+                               shape = RoundedCornerShape(8.dp),
+                               backgroundColor = Color(0xFFFFB8C3)
+                           ) {
+                               Box(modifier = Modifier.height(200.dp).width(160.dp).padding(16.dp)) {
+                                   Text("Images")
+                               }
+                           }
+                       }
+                   },
+
+               )
