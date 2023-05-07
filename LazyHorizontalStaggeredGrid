@@ -37,7 +37,7 @@ fun LazyHorizontalStaggeredView(
 
 
                 content = {
-                    items(totalItems) { photo ->
+                    items(totalItems) { item ->
                         Column() {
                             Card(
                                 shape = RoundedCornerShape(8.dp),
